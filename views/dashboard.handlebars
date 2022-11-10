@@ -1,0 +1,21 @@
+{{#if blogs.length}}
+<section class="all-blogs">
+  <h2>All Blogs</h2>
+  <ol>
+    {{#each blogs as |blog|}}
+    <li>
+        <div class="title">
+            <a>Blog Title: {{blog.title}}</a>
+        </div>
+        <div class="contents">
+            <a>Blog: {{blog.content}}</a>
+        </div>
+        <div>
+          <p>Blog by: {{blog.username}}</p>
+        </div>
+      
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
