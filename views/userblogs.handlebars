@@ -1,0 +1,22 @@
+<div class="user-page">
+  <div class="user-header">
+    <h1>Welcome back, {{user}}!</h1>
+    <a href="/addblog">Add a new blog</a>
+    <p>Here are your previous blogs:</p>
+  </div>
+  <div class="container">
+    {{#each blogs as |blog|}}
+    <div class="card">
+      <div class="card-header">
+            <p>{{blog.title}}</p>
+      </div>
+      <div class="card-body">
+        <div class="card-box">
+            <p><span>Blog Contents:</span> {{blog.contents}}</p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    <br> 
+  </div>  
+</div>
