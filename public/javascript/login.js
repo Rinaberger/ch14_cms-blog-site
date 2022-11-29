@@ -6,17 +6,17 @@ async function loginFormHandler(event) {
   
     if (username && password) {
       const response = await fetch("/api/users/login", {
-        method: "post",
+        method: "POST",
         body: JSON.stringify({
           username,
           password,
         }),
         headers: { "Content-Type": "application/json" },
       });
-  
+      console.log(response)
       if (response.ok) {
         console.log("logged in")
-        document.location.replace("/userlist");
+        document.location.replace("/userblogs");
       } else {
         alert(response.statusText);
       }

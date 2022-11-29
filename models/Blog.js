@@ -18,7 +18,7 @@ Blog.init(
     },
 
     body: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
 
@@ -36,7 +36,7 @@ Blog.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Blog",
+    modelName: "blog",
   }
 );
 

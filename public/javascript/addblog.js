@@ -16,7 +16,7 @@ async function newFormHandler(event) {
     });
   
     if (response.ok) {
-      document.location.replace('/userlist');
+      document.location.replace('/userblogs');
     } else {
       alert(response.statusText);
     }

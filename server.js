@@ -8,7 +8,7 @@ require('dotenv').config();
 
 //Heroku port || local port
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 //import sequelize
 const sequelize = require('./config/connection');

@@ -8,7 +8,7 @@ const withAuth = require('../utils/auth');
 router.get('/signup', (req, res) => {
   //If user is already logged in, redirect to userlist
   if (req.session.loggedIn) {
-    res.redirect('/userlist');
+    res.redirect('/userblogs');
     return;
   }
   res.render('signup');
@@ -16,16 +16,16 @@ router.get('/signup', (req, res) => {
 
 // Connect with login page
 router.get('/login', (req, res) => {
-  //If user is already logged in, redirect to userlist
+  //If user is already logged in, redirect to userblogs
   if (req.session.loggedIn) {
-    res.redirect('/userlist');
+    res.redirect('/userblogs');
     return;
   }
   res.render('login');
 });
 
-//Connect to user List
-router.get('/userlist', withAuth, (req, res) => {
+//Connect to user Blog
+router.get('/userblogs', withAuth, (req, res) => {
   Blog.findAll({
     where: { 
       user_id: req.session.user_id 
@@ -40,7 +40,7 @@ router.get('/userlist', withAuth, (req, res) => {
     const blogs = dbBlogData.map((blog) => blog.get({ plain: true }));
     const user = req.session.username
     console.log(blogs);
-    res.render('userlist', {
+    res.render('userblogs', {
       user,
       blogs,
       loggedIn: req.session.loggedIn,
@@ -77,6 +77,19 @@ router.get('/dashboard', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
+//add blog router (not working)
+// router.get('/addblog', withAuth, (req, res) => {
+//   res.render('addblog', {
+//     title,
+//     body,
+//     loggedIn: req.session.loggedIn
+//   })
+//     }).catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+
 
   
 //redirect undefined to login page

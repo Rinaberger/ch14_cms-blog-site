@@ -107,21 +107,24 @@ router.delete("/:id", (req, res) => {
 //SESSION: USER LOGIN AND LOGOUT STARTS HERE
 // User login
 router.post("/login", (req, res) => {
-  
+  console.log("LOGINNNNNNNN")
+  console.log(req.body)
   User.findOne({
     where: {
       username: req.body.username,
     },
   }).then((dbUserData) => {
+   // console.log("this is dbuserData ", dbUserData)
     if (!dbUserData) {
-      res.status(400).json({ message: "No user with that username!" });
+
+      res.status(404).json({ message: "No user with that username!" });
       return;
     }
 
     const validPassword = dbUserData.checkPassword(req.body.password);
-
+    console.log("password CHECK: ", validPassword)
     if (!validPassword) {
-      res.status(400).json({ message: "Incorrect password!" });
+      res.status(404).json({ message: "Incorrect password!" });
       return;
     }
 
@@ -132,7 +135,10 @@ router.post("/login", (req, res) => {
 
       res.json({ user: dbUserData, message: "You are now logged in!" });
     });
-  });
+  }).catch(err=>{
+    console.log(err)
+    res.status(500).json(err)
+  })
 });
 
 //logout user

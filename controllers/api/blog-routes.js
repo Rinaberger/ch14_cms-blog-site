@@ -20,7 +20,7 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["title", "body", "user_id"],
+    attributes: ["title", "body", ],
     include: [
       {
         model: User,
@@ -41,7 +41,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// Create a recipe
+// Create a blog
 router.post("/", withAuth, async (req, res) => {
   Blog.create({
     title: req.body.title,
