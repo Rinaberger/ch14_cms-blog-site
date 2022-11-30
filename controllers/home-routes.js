@@ -78,17 +78,10 @@ router.get('/dashboard', withAuth, (req, res) => {
     });
 });
 
-//add blog router (not working)
-// router.get('/addblog', withAuth, (req, res) => {
-//   res.render('addblog', {
-//     title,
-//     body,
-//     loggedIn: req.session.loggedIn
-//   })
-//     }).catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
+//add blog router
+router.get('/addblog', withAuth, (req, res) => {
+  res.render('addblog');
+    });
 
 
   
