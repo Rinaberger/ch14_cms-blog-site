@@ -15,7 +15,7 @@ router.get('/signup', (req, res) => {
 });
 
 // Connect with login page
-router.get('/login', (req, res) => {
+router.get('/', (req, res) => {
   //If user is already logged in, redirect to userblogs
   if (req.session.loggedIn) {
     res.redirect('/userblogs');
