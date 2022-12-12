@@ -1,8 +1,19 @@
-const path = require('path');
+
 const router = require('express').Router();
-const sequelize = require('../config/connection');
+
 const { User, Blog } = require('../models');
 const withAuth = require('../utils/auth');
+
+
+// Connect with login page
+router.get('/', (req, res) => {
+  //If user is already logged in, redirect to userblogs
+  if (req.session.loggedIn) {
+    res.redirect('/userblogs');
+    return;
+  }
+  res.render('login');
+});
 
 // Connect with sign up page
 router.get('/signup', (req, res) => {
@@ -14,15 +25,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-// Connect with login page
-router.get('/', (req, res) => {
-  //If user is already logged in, redirect to userblogs
-  if (req.session.loggedIn) {
-    res.redirect('/userblogs');
-    return;
-  }
-  res.render('login');
-});
+
 
 //Connect to user Blog
 router.get('/userblogs', withAuth, (req, res) => {
