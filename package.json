@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "seeds": "node seeds/index.js"
+    "seeds": "node seeds/index.js",
+    "connect": "mysql --host=us-cdbr-east-06.cleardb.net --user=bd0f0dc5dee07e --password=5e322639 --reconnect heroku_823dbcdf4efca88"    
   },
   "repository": {
     "type": "git",
