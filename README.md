@@ -7,7 +7,7 @@ AUTHOR: Scott Rinaberger
 
 LINKS:
 
-    ** HTTP URL Link: https://notetaker-sr.herokuapp.com/
+    ** HTTP URL Link: https://cmsblog.herokuapp.com/
     ** GitHub URL: https://github.com/Rinaberger/note_taker.git
 
 USER STORY
